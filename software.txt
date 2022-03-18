@@ -14,7 +14,7 @@ metabat2-2.15,metabat2=2.15
 qiime-1.9.1,qiime=1.9.1
 roary-3.13.0,roary=3.13.0
 sleuth-0.30.0,r-sleuth=0.30.0
-srts2-0.2.0,srst2=0.2.0
+srst2-0.2.0,srst2=0.2.0
 topgo-2.46.0,bioconductor-topgo=2.46.0
 ariba-2.14.6,ariba=2.14.6
 artemis-18.1.0,artemis=18.1.0
@@ -84,7 +84,7 @@ raxml-8.2.12,raxml=8.2.12
 raxml-ng-1.1.0,raxml-ng=1.1.0
 salmon-1.7.0,salmon=1.7.0
 samtools-1.15,samtools=1.15
-scoary=1.6.16,scoary=1.6.16
+scoary-1.6.16,scoary=1.6.16
 shovill-1.1.0,shovill=1.1.0
 snpeff-5.1,snpeff=5.1
 snp-sites-2.5.1,snp-sites=2.5.1

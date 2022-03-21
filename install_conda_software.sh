@@ -43,6 +43,12 @@ do
     conda create -n $environment $software
 done < software.txt
 
+# Fix for prokka
+conda activate prokka-1.14.6
+conda install -y perl-app-cpanminus
+cpanm Bio::SearchIO::hmmer --force
+echo "Don't forget to manually install signalp for prokka"
+
 echo "!!! Don't forget to set a permanent global variable on the server MINICONDA=$MINICONDA !!!"
 
 set +eu

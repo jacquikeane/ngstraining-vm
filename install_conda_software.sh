@@ -52,7 +52,7 @@ echo "Don't forget to manually install signalp for prokka"
 # Create bespoke profiles
 conda create -n ont-pipeline
 conda activate ont-pipeline
-conda install medaka=1.15
+conda install medaka=1.5
 conda install busco=5.3.0
 conda install bwa=0.7.17 flye=2.9 filtlong=0.2.1 nanostat=1.6 nanofilt=2.8.0 nanoplot=1.39 nanopolish=0.13.2 pilon=1.24 porechop=0.2.4 seqtk=1.3 trimmomatic=0.39 unicycler=0.5
 conda deactivate

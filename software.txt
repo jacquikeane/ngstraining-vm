@@ -16,7 +16,7 @@ roary-3.13.0,roary=3.13.0
 sleuth-0.30.0,r-sleuth=0.30.0
 srst2-0.2.0,srst2=0.2.0
 topgo-2.46.0,bioconductor-topgo=2.46.0
-ariba-2.14.6,ariba=2.14.6
+ariba-2.14.6,ariba=2.14.6 pysam=0.18
 artemis-18.1.0,artemis=18.1.0
 assembly-stats-1.0.1,assembly-stats=1.0.1
 bakta-1.3,bakta=1.3

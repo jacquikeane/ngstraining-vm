@@ -110,3 +110,6 @@ wgsim-1.0,wgsim=1.0
 biotradis-1.4.5,biotradis=1.4.5
 checkm-1.1.3,checkm-genome=1.1.3
 bactopia-2.0.3,bactopia=2.0.3
+star-2.7.10,star=2.7.10
+cufflinks-2.2.1,cufflinks=2.2.1
+edger-3.36.0,bioconductor-edger=3.36.0

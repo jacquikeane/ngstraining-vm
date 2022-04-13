@@ -49,13 +49,27 @@ conda install -y perl-app-cpanminus
 cpanm Bio::SearchIO::hmmer --force
 echo "Don't forget to manually install signalp for prokka"
 
-# Create bespoke profiles
+# Create bespoke ont profile
 conda create -n ont-pipeline
 conda activate ont-pipeline
 conda install medaka=1.5
 conda install busco=5.3.0
 conda install assembly-stats=1.0.1 bwa=0.7.17 flye=2.9 filtlong=0.2.1 nanostat=1.6 nanofilt=2.8.0 nanoplot=1.39 nanopolish=0.13.2 pilon=1.24 porechop=0.2.4 seqtk=1.3 trimmomatic=0.39 unicycler=0.5
 conda deactivate
+
+# Create remove_blocks profile and add it to the snp-phylogeny environment
+git clone https://github.com/sanger-pathogens/remove_blocks_from_aln.git
+cd remove_blocks_from_aln
+conda create -n remove-blocks-0.1 python=2.7
+conda activate remove-blocks-0.1
+python setup.py test
+python setup.py install
+conda deactivate 
+conda activate snp-phylogeny
+python setup.py test
+python setup.py install
+conda deactivate
+cd ..
 
 echo "!!! Don't forget to set a permanent global variable on the server MINICONDA=$MINICONDA !!!"
 

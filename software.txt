@@ -113,4 +113,16 @@ bactopia-2.0.3,bactopia=2.0.3
 star-2.7.10,star=2.7.10
 cufflinks-2.2.1,cufflinks=2.2.1
 edger-3.36.0,bioconductor-edger=3.36.0
+multiqc-1.12,multiqc=1.12
+diamond-2.0.14,diamond=2.0.14
+confindr-0.7.4,confindr=0.7.4
+rapidnj-2.3.2,rapidnj=2.3.2
+resfinder-4.1.11,resfinder=4.1.11
+ncbi-amrfinderplus-3.10.24,ncbi-amrfinderplus=3.10.24
+cytoscape-3.9.1,cytoscape=3.9.1
+coinfinder-1.1.0,coinfinder=1.1.0
+treetime-0.8.6,treetime=0.8.6
+pathoscope-2.0.7,pathoscope=2.0.7
+pantools-3.3.3,pantools=3.3.3
+panx-1.6.0,panx=1.6.0
 bulk-rnaseq bwa=0.7.17 hisat2=2.2.1 star=2.7.10 htseq=1.99.2 bioconductor-deseq2=1.34 kallisto=0.48.0 r-sleuth=0.30.0 bioconductor-topgo=2.46.0 bedtools=2.30 igv=2.12.3 samtools=1.15

@@ -126,3 +126,4 @@ pathoscope-2.0.7,pathoscope=2.0.7
 pantools-3.3.3,pantools=3.3.3
 panx-1.6.0,panx=1.6.0
 bulk-rnaseq bwa=0.7.17 hisat2=2.2.1 star=2.7.10 htseq=1.99.2 bioconductor-deseq2=1.34 kallisto=0.48.0 r-sleuth=0.30.0 bioconductor-topgo=2.46.0 bedtools=2.30 igv=2.12.3 samtools=1.15
+amr-prediction,abricate=1.0.1 ariba=2.14.6 pysam=0.18 resfinder=4.1.11 mykrobe=0.10.0 ncbi-amrfinderplus=3.10.24

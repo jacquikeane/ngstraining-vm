@@ -27,4 +27,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Install conda software
-      run: git clone https://github.com/citiid-baker/bakersrv1.git && cd bakersrv1 && bash install_conda_software.sh
+      run: useradd -m -s /bin/bash software && git clone https://github.com/citiid-baker/bakersrv1.git && cd bakersrv1 && bash install_conda_software.sh

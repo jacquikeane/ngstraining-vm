@@ -105,6 +105,19 @@ conda install -c conda-forge r-plyr=1.8.6 --yes
 conda install -c conda-forge r-dplyr=1.0.7 --yes
 conda deactivate
 
+//checkout the deago repos
+wget https://github.com/vaofford/deago/archive/refs/tags/v1.1.3.tar.gz
+tar -xvf v1.1.3.tar.gz
+rm v1.1.3.tar.gz
+wget https://github.com/vaofford/Bio-Deago/archive/refs/tags/v1.0.0.tar.gz
+tar -xvf v1.1.3.tar.gz
+rm v1.1.3.tar.gz
+conda create -n deago-1.1.3 bioconductor-deseq2=1.34.0 bioconductor-topgo=2.46.0 r-devtools=2.4.3 pandoc=2.18 perl-app-cpanminus=1.7045 
+conda install -c dan_blanchard perl-dist-zilla=5.013
+conda activate deago-1.1.3
+
+conda deactivate
+
 echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"
 
 set +eu

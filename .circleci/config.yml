@@ -15,7 +15,7 @@ jobs:
     steps:
       - run:
           name: "Set up"
-          command: "echo Creating;sudo useradd -c Name -m -s /bin/bash -p ch@ngem3! software;cd /home/software"
+          command: "echo Creating;sudo useradd -c Name -m -s /bin/bash -p ch@ngem3! software;cd /home/software;pwd"
       - checkout
       - run:
           name: "Install conda software"

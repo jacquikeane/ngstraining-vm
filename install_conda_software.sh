@@ -47,7 +47,6 @@ done < software.txt
 conda activate prokka-1.14.6
 conda install -y perl-app-cpanminus
 cpanm Bio::SearchIO::hmmer --force
-echo "Don't forget to manually install signalp for prokka"
 
 # Create bespoke ont profile
 conda create -n ont-pipeline
@@ -72,5 +71,25 @@ conda deactivate
 cd ..
 
 echo "!!! Don't forget to set a permanent global variable on the server MINICONDA=$MINICONDA !!!"
+
+conda create -n signalp-6.0 python
+conda activate signalp-6.0 
+conda install tqdm>4.46.1 matplotlib>3.3.2 numpy>1.19.2
+pip install torch
+pip install signalp-6-package
+//copy the databases
+conda deactivate
+
+conda activate prokka 
+conda install tqdm>4.46.1 matplotlib>3.3.2 numpy>1.19.2
+pip install torch
+pip install signalp-6-package/
+//copy the databases
+SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
+cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
+
+conda deactivate
+
+echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"
 
 set +eu

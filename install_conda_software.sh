@@ -112,7 +112,7 @@ rm v1.1.3.tar.gz
 wget https://github.com/vaofford/Bio-Deago/archive/refs/tags/v1.0.0.tar.gz
 tar -xvf v1.1.3.tar.gz
 rm v1.1.3.tar.gz
-conda create -n deago-1.1.3 bioconductor-deseq2=1.34.0 bioconductor-topgo=2.46.0 r-devtools=2.4.3 pandoc=2.18 perl-app-cpanminus=1.7045 
+conda create -n deago-1.1.3 bioconductor-deseq2=1.34.0 bioconductor-topgo=2.46.0 r-devtools=2.4.3 pandoc=2.18 perl-app-cpanminus=1.7039 
 conda install -c dan_blanchard perl-dist-zilla=5.013
 conda activate deago-1.1.3
 

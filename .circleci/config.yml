@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Install conda software"
-          command: "bash install_conda_software.sh"
+          command: "pwd;ls /home;bash install_conda_software.sh"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows

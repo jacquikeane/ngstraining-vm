@@ -10,12 +10,13 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: cimg/base:stable
+        user: software
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - run:
           name: "Set up"
-          command: "echo Creating;sudo useradd -c Name -m -s /bin/bash -p ch@ngem3! software;cd /home/software;pwd;su software;cd ~;pwd"
+          command: "pwd"
       - checkout
       - run:
           name: "Install conda software"

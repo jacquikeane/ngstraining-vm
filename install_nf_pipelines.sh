@@ -24,11 +24,13 @@ mkdir nf-pipelines
 cd nf-pipelines
 
 # Install pipelines from nf core
-nf-core download --container singularity fetchngs
-nf-core download --container singularity bactmap
-nf-core download --container singularity rnaseq
-nf-core download --container singularity scrnaseq
-nf-core download --container singularity nanoseq
+nf-core download --compress none --container singularity --revision 1.5 fetchngs
+nf-core download --compress none --container singularity --revision 1.0.0 bactmap
+nf-core download --compress none --container singularity --revision 3.6 rnaseq
+nf-core download --compress none --container singularity --revision 1.1.0 scrnaseq
+nf-core download --compress none --container singularity --revision 2.0.1 nanoseq
+nf-core download --compress none --container singularity --revision 2.1.1 mag
+nf-core download --compress none --container singularity --revision 2.0.1 taxprofiler
 
 # Install other nf pipelines
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/assembly/-/archive/2.1.2/assembly-2.1.2.tar.gz

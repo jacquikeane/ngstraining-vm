@@ -26,17 +26,15 @@ cd nf-pipelines
 # Install pipelines from nf core
 nf-core download --container singularity fetchngs
 nf-core download --container singularity bactmap
-nf-core download --container singularity bacass
 nf-core download --container singularity rnaseq
 nf-core download --container singularity scrnaseq
 nf-core download --container singularity nanoseq
 
 # Install other nf pipelines
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/assembly/-/archive/2.1.2/assembly-2.1.2.tar.gz
-wget https://gitlab.com/cgps/ghru/pipelines/snp_phylogeny/-/archive/1.2.2/snp_phylogeny-1.2.2.tar.gz
-wget https://gitlab.com/cgps/ghru/pipelines/roary/-/archive/1.1.4/roary-1.1.4.tar.gz
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/mlst/-/archive/1.2/mlst-1.2.tar.gz
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/amr_prediction/-/archive/1.1/amr_prediction-1.1.tar.gz
+wget https://gitlab.com/cgps/ghru/pipelines/roary/-/archive/1.1.4/roary-1.1.4.tar.gz
 
 # No releases available
 git clone https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/ariba.git

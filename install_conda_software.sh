@@ -126,7 +126,7 @@ conda create -n qualifyr-1.4.6 python=3.8
 conada activate qualifyr-1.4.6 
 git clone https://gitlab.com/cgps/qualifyr.git
 cd qualifyr
-git cheeckout 4d61a4d9
+git checkout 4d61a4d9
 python setup.py install
 cd ..
 conda deactivate

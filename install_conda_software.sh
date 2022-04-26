@@ -3,7 +3,7 @@
 set -eu
 
 # Script assumes a user exists called software and that the script is run as user software
-
+https://github.com/citiid-baker/bakersrv1/blob/main/install_conda_software.sh
 # Set up variables and add miniconda location to PATH
 export MINICONDA="/home/software/miniconda"
 export MINICONDA_BIN_LOCATION="$MINICONDA/bin"
@@ -105,7 +105,7 @@ conda install -c conda-forge r-plyr=1.8.6 --yes
 conda install -c conda-forge r-dplyr=1.0.7 --yes
 conda deactivate
 
-//checkout the deago repos
+//checkout the deago repos - fix
 wget https://github.com/vaofford/deago/archive/refs/tags/v1.1.3.tar.gz
 tar -xvf v1.1.3.tar.gz
 rm v1.1.3.tar.gz
@@ -124,11 +124,34 @@ conda deactivate
 //Install qualifyr
 conda create -n qualifyr-1.4.6 python=3.8
 conda activate qualifyr-1.4.6 
-git clone https://gitlab.com/cgps/qualifyr.git
+wget/git clone https://gitlab.com/cgps/qualifyr.git
 cd qualifyr
 git checkout 4d61a4d9
 python setup.py install
 cd ..
+conda deactivate
+
+//Install metagm
+conda create -n metagm-0.1.1
+conda install -c bioconda perl-app-cpanminus=1.7043
+conda install -c bioconda perl-lwp-protocol-https=6.06 
+conda install -c bioconda perl-net-ssleay=1.84 
+conda install -c bioconda perl-bioperl=1.6.924
+cpanm Dist::Zilla@5.048
+conda install kraken
+wget/git clone https://github.com/sanger-pathogens/Bio-Metagenomics.git
+cd Bio-Metagenomics
+git checkout bbcc2ca
+dzil authordeps --missing | cpanm
+dzil listdeps --missing | cpanm
+mkdir fake_bin
+for x in kraken kraken-build kraken-report merge_metaphlan_tables.py metaphlan_hclust_heatmap.py; do touch fake_bin/$x; done
+chmod -R 755 fake_bin
+PATH=$(pwd)/fake_bin:$PATH
+dzil install
+metaphlan_heatmap=$(which metagm_make_metaphlan_heatmap)
+metaphlan_hclust=$(which metaphlan_hclust_heatmap.py)
+chmod 600 $metaphlan_heatmap $metaphlan_hclust
 conda deactivate
 
 echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"

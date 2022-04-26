@@ -123,7 +123,7 @@ conda deactivate
 
 //Install qualifyr
 conda create -n qualifyr-1.4.6 python=3.8
-conada activate qualifyr-1.4.6 
+conda activate qualifyr-1.4.6 
 git clone https://gitlab.com/cgps/qualifyr.git
 cd qualifyr
 git checkout 4d61a4d9

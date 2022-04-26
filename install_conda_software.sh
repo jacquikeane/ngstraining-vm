@@ -119,8 +119,16 @@ cpanm Dist::Zilla
 cd Bio-Deago-1.0.0/
 dzil authordeps --missing | cpanm
 dzil listdeps --missing | cpanm 
+conda deactivate
 
-
+//Install qualifyr
+conda create -n qualifyr-1.4.6 python=3.8
+conada activate qualifyr-1.4.6 
+git clone https://gitlab.com/cgps/qualifyr.git
+cd qualifyr
+git cheeckout 4d61a4d9
+python setup.py install
+cd ..
 conda deactivate
 
 echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"

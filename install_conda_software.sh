@@ -148,6 +148,7 @@ conda install -c bioconda perl-net-ssleay=1.84
 conda install -c bioconda perl-bioperl=1.6.924
 cpanm Dist::Zilla@5.048
 conda install kraken
+conda install pyfastaq
 wget/git clone https://github.com/sanger-pathogens/Bio-Metagenomics.git
 cd Bio-Metagenomics
 git checkout bbcc2ca
@@ -161,7 +162,44 @@ dzil install
 metaphlan_heatmap=$(which metagm_make_metaphlan_heatmap)
 metaphlan_hclust=$(which metaphlan_hclust_heatmap.py)
 chmod 600 $metaphlan_heatmap $metaphlan_hclust
+conda install python=3
+conda install pyfastaq
 conda deactivate
+
+//bactgen scripts
+conda create -n bactgen python=2.7
+conda activate bactgen
+conda install backports.functools-lru-cache==1.6.1
+conda install numpy=1.12.1
+conda install pysam=0.12.0.1
+conda install biopython=1.68
+conda install DendroPy=3.12.2
+conda install cycler=0.10.0
+conda install fisher=0.1.4
+conda install kiwisolver=1.1.0
+conda install matplotlib=2.2.5
+conda install Pillow=6.2.2
+conda install pyparsing=2.4.6
+conda install python-dateutil=2.8.1
+conda install pytz=2019.3
+conda install reportlab=3.4.0
+conda install six=1.14.0
+conda install subprocess32=3.5.4
+conda install samtools=1.6
+conda install beast=1.8.4
+conda install gatk=3.7.0
+conda install picard=1.126
+conda install bwa=0.7.17
+conda install raxml=8.2.9
+conda install paml=4.9
+conda install smalt=0.7.6
+
+wget ftp://ftp.sanger.ac.uk/pub/resources/software/ssaha2/ssaha2_v2.5.5_x86_64.tgz
+tar -xf ssaha2_v2.5.5_x86_64.tgz
+//extract ssaha binaries to bin for environment
+
+wget https://github.com/sanger-pathogens/bact-gen-scripts/archive/master.tar.gz
+tar -xf master.tar.gz
 
 echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"
 

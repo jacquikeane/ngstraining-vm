@@ -169,22 +169,13 @@ conda deactivate
 //bactgen scripts
 conda create -n bactgen python=2.7
 conda activate bactgen
-conda install backports.functools-lru-cache==1.6.1
-conda install numpy=1.12.1
-conda install pysam=0.12.0.1
-conda install biopython=1.68
-conda install DendroPy=3.12.2
-conda install cycler=0.10.0
-conda install fisher=0.1.4
-conda install kiwisolver=1.1.0
-conda install matplotlib=2.2.5
-conda install Pillow=6.2.2
-conda install pyparsing=2.4.6
-conda install python-dateutil=2.8.1
-conda install pytz=2019.3
-conda install reportlab=3.4.0
-conda install six=1.14.0
-conda install subprocess32=3.5.4
+wget https://github.com/sanger-pathogens/bact-gen-scripts/archive/master.tar.gz
+tar -xf master.tar.gz
+cd bact-gen-scripts-master
+pip install $(grep numpy ./pip/requirements.txt)
+pip install $(grep fisher ./pip/requirements.txt)
+pip install -r ./pip/requirements.txt
+
 conda install samtools=1.6
 conda install beast=1.8.4
 conda install gatk=3.7.0
@@ -194,12 +185,15 @@ conda install raxml=8.2.9
 conda install paml=4.9
 conda install smalt=0.7.6
 
+//copy script to a bin and make executable
+cd ..
 wget ftp://ftp.sanger.ac.uk/pub/resources/software/ssaha2/ssaha2_v2.5.5_x86_64.tgz
 tar -xf ssaha2_v2.5.5_x86_64.tgz
+cd ssaha
 //extract ssaha binaries to bin for environment
+cd ..
+conda deactivate
 
-wget https://github.com/sanger-pathogens/bact-gen-scripts/archive/master.tar.gz
-tar -xf master.tar.gz
 
 echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"
 

@@ -56,7 +56,7 @@ conda install busco=5.3.0
 conda install assembly-stats=1.0.1 bwa=0.7.17 flye=2.9 filtlong=0.2.1 nanostat=1.6 nanofilt=2.8.0 nanoplot=1.39 nanopolish=0.13.2 pilon=1.24 porechop=0.2.4 seqtk=1.3 trimmomatic=0.39 unicycler=0.5
 conda deactivate
 
-# Create remove_blocks profile and add it to the snp-phylogeny environment
+# Create remove_blocks profile and also add it to the snp-phylogeny environment
 git clone https://github.com/sanger-pathogens/remove_blocks_from_aln.git
 cd remove_blocks_from_aln
 conda create -n remove-blocks-0.1 python=2.7
@@ -70,27 +70,27 @@ python setup.py install
 conda deactivate
 cd ..
 
-echo "!!! Don't forget to set a permanent global variable on the server MINICONDA=$MINICONDA !!!"
-
+# Install signalp and add it to the prokka environment
 conda create -n signalp-6.0 python
 conda activate signalp-6.0 
 conda install tqdm>4.46.1 matplotlib>3.3.2 numpy>1.19.2
 pip install torch
 pip install signalp-6-package
-//copy the databases
+#copy the databases
+SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
+cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
 conda deactivate
 
 conda activate prokka 
 conda install tqdm>4.46.1 matplotlib>3.3.2 numpy>1.19.2
 pip install torch
 pip install signalp-6-package/
-//copy the databases
+#copy the databases
 SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
 cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
-
 conda deactivate
 
-//Installs for plasmidEC                
+# Installs for plasmidEC                
 conda env create --file=/home/software/src/plasmidEC-1.1/yml/plasmidEC_mlplasmids.yml
 conda create --name plasmidEC_plascope -c bioconda/label/cf201901 plascope=1.3.1 --yes
 conda create --name plasmidEC_platon -c bioconda platon=1.6 --yes
@@ -105,7 +105,7 @@ conda install -c conda-forge r-plyr=1.8.6 --yes
 conda install -c conda-forge r-dplyr=1.0.7 --yes
 conda deactivate
 
-//checkout the deago repos
+# Install deago
 conda create -n deago-1.1.3
 conda activate deago-1.1.3
 conda install -c bioconda perl-app-cpanminus=1.7043
@@ -116,20 +116,18 @@ conda install bioconductor-deseq2=1.34.0 bioconductor-topgo=2.46.0 r-devtools=2.
 wget https://github.com/vaofford/deago/archive/refs/tags/v1.1.3.tar.gz
 wget https://github.com/vaofford/Bio-Deago/archive/refs/tags/v1.0.0.tar.gz
 tar -xvf v1.0.0.tar.gz
-
 R CMD INSTALL v1.1.3.tar.gz
 cd Bio-Deago-1.0.0/
 dzil authordeps --missing | cpanm
 dzil listdeps --missing | cpanm 
 dzil install
-
 cd ..
 rm v1.1.3.tar.gz
 rm v1.0.0.tar.gz
 rm -rf Bio-Deago-1.0.0
 conda deactivate
 
-//Install qualifyr
+# Install qualifyr
 conda create -n qualifyr-1.4.6 python=3.8
 conda activate qualifyr-1.4.6 
 wget https://gitlab.com/cgps/qualifyr/-/archive/1.4.6/qualifyr-1.4.6.tar.gz
@@ -141,7 +139,7 @@ rm qualifyr-1.4.6.tar.gz
 rm -rf qualifyr-1.4.6
 conda deactivate
 
-//Install metagm
+# Install Bio::Metagenomics
 conda create -n metagm-0.1.1
 conda activate metagm-0.1.1
 conda install -c bioconda perl-app-cpanminus=1.7043
@@ -168,16 +166,15 @@ conda install python=3
 conda install pyfastaq
 conda deactivate
 
-//bactgen scripts
-conda create -n bactgen python=2.7
-conda activate bactgen
-wget https://github.com/sanger-pathogens/bact-gen-scripts/archive/master.tar.gz
-tar -xf master.tar.gz
-cd bact-gen-scripts-master
+# Install bactgen/sh16 scripts
+conda create -n sh16-scripts-0.3 python=2.7
+conda activate sh16-scripts-0.3
+wget https://github.com/sanger-pathogens/bact-gen-scripts/archive/refs/tags/v0.3.tar.gz
+tar -xf v0.3.tar.gz
+cd bact-gen-scripts-0.3
 pip install $(grep numpy ./pip/requirements.txt)
 pip install $(grep fisher ./pip/requirements.txt)
 pip install -r ./pip/requirements.txt
-
 conda install samtools=1.6
 conda install beast=1.8.4
 conda install gatk=3.7.0
@@ -186,17 +183,18 @@ conda install bwa=0.7.17
 conda install raxml=8.2.9
 conda install paml=4.9
 conda install smalt=0.7.6
-
-//copy script to a bin and make executable
+cp *.py /home/software/miniconda/envs/sh16-scripts-0.3/bin
+cp -r modules /home/software/miniconda/envs/sh16-scripts-0.3/bin
 cd ..
+rm v0.3.tar.gz
+rm -rf bact-gen-scripts-0.3
 wget ftp://ftp.sanger.ac.uk/pub/resources/software/ssaha2/ssaha2_v2.5.5_x86_64.tgz
 tar -xf ssaha2_v2.5.5_x86_64.tgz
-cd ssaha
-//extract ssaha binaries to bin for environment
+cd ssaha2_v2.5.5_x86_64/
+cp ssaha* /home/software/miniconda/envs/sh16-scripts-0.3/bin
 cd ..
+rm ssaha2_v2.5.5_x86_64.tgz
+rm -rf ssaha2_v2.5.5_x86_64
 conda deactivate
-
-
-echo "Don't forget to manually install signalp in the signalp and the prokka environments!!"
 
 set +eu

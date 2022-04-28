@@ -46,4 +46,4 @@ cd ..
 
 # Install bespoke scripts for running nf pipelines 
 git clone https://github.com/citiid-baker/nf_pipeline_scripts.git
-cp *.sh /home/software/miniconda/envs/nextflow-pipelines/bin
+cp *.sh /home/software/.conda/envs/nextflow-pipelines/bin

@@ -140,18 +140,16 @@ rm -rf qualifyr-1.4.6
 conda deactivate
 
 # Install Bio::Metagenomics
-conda create -n metagm-0.1.1
-conda activate metagm-0.1.1
+conda create -n bio-metagenomics-0.1.1
+conda activate bio-metagenomics-0.1.1
 conda install -c bioconda perl-app-cpanminus=1.7043
 conda install -c bioconda perl-lwp-protocol-https=6.06 
-conda install -c bioconda perl-net-ssleay=1.84 
 conda install -c bioconda perl-bioperl=1.6.924
 cpanm Dist::Zilla@5.048
-conda install kraken
-conda install pyfastaq
-wget/git clone https://github.com/sanger-pathogens/Bio-Metagenomics.git
-cd Bio-Metagenomics
-git checkout bbcc2ca
+conda install kraken=1.1
+wget https://github.com/sanger-pathogens/Bio-Metagenomics/archive/refs/tags/v0.1.1.tar.gz
+tar -xf v0.1.1.tar.gz
+cd Bio-Metagenomics-0.1.1
 dzil authordeps --missing | cpanm
 dzil listdeps --missing | cpanm
 mkdir fake_bin
@@ -162,8 +160,11 @@ dzil install
 metaphlan_heatmap=$(which metagm_make_metaphlan_heatmap)
 metaphlan_hclust=$(which metaphlan_hclust_heatmap.py)
 chmod 600 $metaphlan_heatmap $metaphlan_hclust
-conda install python=3
-conda install pyfastaq
+conda install python=3.8
+conda install pyfastaq=3.17
+cd ..
+rm -rf Bio-Metagenomics-0.1.1
+rm v0.1.1.tar.gz
 conda deactivate
 
 # Install bactgen/sh16 scripts

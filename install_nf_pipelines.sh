@@ -32,18 +32,31 @@ nf-core download --compress none --container singularity --revision 1.1.0 scrnas
 nf-core download --compress none --container singularity --revision 2.0.1 nanoseq
 nf-core download --compress none --container singularity --revision 2.1.1 mag
 
-# Install other nf pipelines
+# Install other nf pipelines from cgps
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/assembly/-/archive/2.1.2/assembly-2.1.2.tar.gz
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/mlst/-/archive/1.2/mlst-1.2.tar.gz
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/amr_prediction/-/archive/1.1/amr_prediction-1.1.tar.gz
 wget https://gitlab.com/cgps/ghru/pipelines/roary/-/archive/1.1.4/roary-1.1.4.tar.gz
 
+tar -xf assembly-2.1.2.tar.gz
+tar -xf mlst-1.2.tar.gz
+tar -xf amr_prediction-1.1.tar.gz
+tar -xf roary-1.1.4.tar.gz
+rm assembly-2.1.2.tar.gz
+rm mlst-1.2.tar.gz
+rm amr_prediction-1.1.tar.gz
+rm roary-1.1.4.tar.gz
+
 # No releases available
-git clone https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/ariba.git
-git clone https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/plasmidfinder.git
+#git clone https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/ariba.git
+#git clone https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/plasmidfinder.git
 
 cd ..
+
+echo "!!! Don't forget to get the singularity containers for the cgps/ghru pipelines"
 
 # Install bespoke scripts for running nf pipelines 
 git clone https://github.com/citiid-baker/nf_pipeline_scripts.git
 cp *.sh /home/software/.conda/envs/nextflow-pipelines/bin
+
+conda deactivate

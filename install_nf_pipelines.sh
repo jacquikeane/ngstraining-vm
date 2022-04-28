@@ -31,7 +31,6 @@ nf-core download --compress none --container singularity --revision 3.6 rnaseq
 nf-core download --compress none --container singularity --revision 1.1.0 scrnaseq
 nf-core download --compress none --container singularity --revision 2.0.1 nanoseq
 nf-core download --compress none --container singularity --revision 2.1.1 mag
-nf-core download --compress none --container singularity --revision 2.0.1 taxprofiler
 
 # Install other nf pipelines
 wget https://gitlab.com/cgps/ghru/pipelines/dsl2/pipelines/assembly/-/archive/2.1.2/assembly-2.1.2.tar.gz
@@ -47,4 +46,4 @@ cd ..
 
 # Install bespoke scripts for running nf pipelines 
 git clone https://github.com/citiid-baker/nf_pipeline_scripts.git
-cp *.sh /software/
+cp *.sh /home/software/miniconda/env/nextflow-pipelines/bin

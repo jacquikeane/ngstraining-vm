@@ -197,4 +197,6 @@ rm ssaha2_v2.5.5_x86_64.tgz
 rm -rf ssaha2_v2.5.5_x86_64
 conda deactivate
 
+echo "!!! Don't forget to set a permanent global variable on the server MINICONDA=$MINICONDA !!!"
+
 set +eu

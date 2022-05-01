@@ -154,6 +154,7 @@ alevinqc-1.10.0,bioconductor-alevinqc=1.10.0
 ucsc-bedgraphtobigwig-377,ucsc-bedgraphtobigwig=377
 ucsc-bedtobigbed-377.,ucsc-bedtobigbed=377
 rasusa-0.6.1,rasusa=0.6.1
+rsem-1.3.3,rsem=1.3.3
 paml-4.9,paml=4.9
 smalt-0.7.6,smalt=0.7.6
 r-4.1.3,r-base=4.1.3

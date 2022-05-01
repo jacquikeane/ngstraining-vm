@@ -22,3 +22,5 @@ conda install -c bioconda bioconductor-biostrings=2.60.0 --yes
 conda install -c conda-forge r-plyr=1.8.6 --yes
 conda install -c conda-forge r-dplyr=1.0.7 --yes
 conda deactivate
+
+set +eu

@@ -11,6 +11,11 @@ CURRENT_DATE=`date +"%Y-%m-%d"`
 
 cd /data/dbs
 
+# amrfinder
+conda activate ncbi-amrfinderplus-3.10.24
+amrfinder -u
+conda deactivate
+
 # ariba
 mkdir ariba
 mkdir ariba/${CURRENT_DATE}
@@ -42,7 +47,7 @@ ariba prepareref -f virulencefinder.fa -m virulencefinder.tsv virulencefinder
 conda deactivate
 cd ../..
 
-# argannot
+# argannot?
 
 # blast
 mkdir blast/v5
@@ -53,9 +58,25 @@ tar -xf $i* -C $i
 conda deactivate
 cd ../..
 
-# card
+ftp://ftp.ncbi.nlm.nih.gov/blast/db/v4/nt_v4.*.tar.gz"
 
-# greengenes
+# checkm
+mkdir checkm
+cd checkm
+wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_16.tar.gz
+tar -xvf *.tar.gz
+rm *.gz
+cd ../
+
+# card?
+wget https://card.mcmaster.ca/download/0/broadstreet-v3.2.1.tar.bz2
+
+#confindr?
+
+# mothur/greengenes?
+wget https://mothur.org/w/images/6/68/Gg_13_8_99.taxonomy.tgz
+wget https://mothur.org/w/images/1/19/Gg_13_8_99.refalign.tgz
+wget https://mothur.org/w/images/2/21/Greengenes.gold.alignment.zip
 
 # kraken2
 mkdir kraken2
@@ -84,16 +105,59 @@ mkdir 16S_Silva138_20200326
 tar -xf 16S_Silva138_20200326.tgz -C 16S_Silva138_20200326
 cd ..
 
-# megares
+# megares?
 
-# mothur
+# metaphlan
+wget https://zenodo.org/record/3957592/files/mpa_latest?download=1
 
 # plasmidfinder
+mkdir plasmidfinder
+mkdir plasmidfinder/$CURRENT_DATE
+git clone https://bitbucket.org/genomicepidemiology/plasmidfinder_db.git
+cd plasmidfinder_db
+PLASMID_DB=$(pwd)
+python3 INSTALL.py kma_index
 
 # resfinder
+mkdir resfinder
+mkdir resfinder/${CURRENT_DATE}
+cd resfinder/${CURRENT_DATE}
+git clone https://git@bitbucket.org/genomicepidemiology/resfinder_db.git db_resfinder
 
-# RDP
+# pointfinder
+mkdir pointfinder
+mkdir pointfinder/${CURRENT_DATE}
+cd pointfinder/${CURRENT_DATE}
+git clone https://git@bitbucket.org/genomicepidemiology/pointfinder_db.git db_pointfinder
 
-# silva
+# panphlan?
+panphlan_download_pangenome.py -i -o 
 
-# virulencefinder
+#pubmlst?
+
+# RDP?
+
+# silva?
+mkdir silva
+mkdir silva/r138
+cd silva/r138
+wget https://ftp.arb-silva.de/release_138_1/ARB_files/*.*
+
+# NCBI taxonomy
+mkdir ncbi_taxonomy
+mkdir ncbi_taxonomy/${CURRENT_DATE}
+cd ncbi_taxonomy/${CURRENT_DATE}
+wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
+tar -xvf taxdump.tar.gz
+cd ../..
+
+# virulencefinder?
+mkdir virulencefinder
+cd virulencefinder
+git clone https://bitbucket.org/genomicepidemiology/virulencefinder_db.git
+cd virulencefinder_db
+VIRULENCE_DB=$(pwd)
+python3 INSTALL.py kma_index
+cd ..
+
+install rgi and kma_index

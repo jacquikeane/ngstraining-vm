@@ -3,7 +3,7 @@
 set -eu
 
 # Script assumes a user exists called software and that the script is run as user software
-https://github.com/citiid-baker/bakersrv1/blob/main/install_conda_software.sh
+
 # Set up variables and add miniconda location to PATH
 export MINICONDA="/home/software/miniconda"
 export MINICONDA_BIN_LOCATION="$MINICONDA/bin"

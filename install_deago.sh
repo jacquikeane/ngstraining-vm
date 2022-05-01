@@ -1,3 +1,11 @@
+#!/bin/bash
+
+set -eu
+
+# Script assumes a user exists called software and that the script is run as user software
+
+source $MINICONDA/etc/profile.d/conda.sh
+
 # Install deago
 conda create -n deago-1.1.3
 conda activate deago-1.1.3
@@ -19,3 +27,5 @@ rm v1.1.3.tar.gz
 rm v1.0.0.tar.gz
 rm -rf Bio-Deago-1.0.0
 conda deactivate
+
+set +eu

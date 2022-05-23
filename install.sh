@@ -11,6 +11,9 @@ set -eu
 
 ./install_conda_profiles.sh
 
+conda activate bactopia
+bactopia download
+
 ./install_bio_metagenomics.sh
 ./install_deago.sh
 ./install_plamid_ec.sh

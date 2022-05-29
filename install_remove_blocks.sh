@@ -6,19 +6,17 @@ set -eu
 
 # Create remove_blocks profile and also add it to the snp-phylogeny environment
 
-git clone https://github.com/sanger-pathogens/remove_blocks_from_aln.git
-cd remove_blocks_from_aln
+wget https://github.com/sanger-pathogens/remove_blocks_from_aln/archive/refs/tags/0.1.tar.gz
+tar -xvf 0.1.tar.gz
+cd remove_blocks_from_aln-0.1
 
 conda create -n remove-blocks-0.1 python=2.7
 conda activate remove-blocks-0.1
 python setup.py test
 python setup.py install
 conda deactivate 
-
-conda activate snp-phylogeny
-python setup.py test
-python setup.py install
-conda deactivate
 cd ..
+rm 0.1.tar.gz
+rm -rf remove_blocks_from_aln-0.1
 
 set +eu
